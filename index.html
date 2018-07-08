@@ -1,14 +1,184 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="./src/css/pc.css">
-    <link rel="stylesheet" href="./src/css/mobile.css">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+<meta charset="UTF-8">
+<title>amy</title>
+<style type="text/css">
+*{
+	margin:0 auto;
+	padding:0;
+}
+@keyframes rotate{
+	0%{
+		transform:rotateX(0deg) rotateY(0deg);
+	}
+	100%{
+		transform:rotateX(360deg) rotateY(360deg);
+	}
+}
+html{
+	background:linear-gradient(#ff0 0%, #000 80%);
+	height:100%;
+}
+.wrap{
+	margin-top:200px;
+	perspective: 1000px; /* 视图距元素的距离 相当于摄像机 */
+}
+.cube{
+	width:200px;
+	height:200px;
+	position:relative;
+	color:#fff;
+	font-size:36px;
+	font-weight:bold;
+	text-align:center;
+	line-height:200px;
+	transform-style:preserve-3d; /* 默认flat 2D */
+	transform:rotateX(-30deg) rotateY(-70deg); 
+	animation:rotate 20s infinite linear; /*播放时间 播放次数为循环 缓动效果为匀速 */
+}
+.cube > div{
+	width:100%;
+	height:100%;
+	border:1px solid #fff;
+	position:absolute;
+	background-color:#333;
+	opacity:.6;
+	transition:transform 0.4s ease-in;
+}
+.cube .out-front{
+	transform: translateZ(100px);
+}
+.cube .out-back{
+	transform: translateZ(-100px) rotateY(180deg);
+}
+.cube .out-left{
+	transform: translateX(-100px) rotateY(-90deg);
+}
+.cube .out-right{ 
+	transform: translateX(100px) rotateY(90deg);
+}
+.cube .out-top{
+	transform: translateY(-100px) rotateX(90deg);
+}
+.cube .out-bottom{
+	transform: translateY(100px) rotateX(-90deg);
+}
+.amy-img{
+	width:100%;
+	height:100%;
+}
+.cube > span{
+	display:block;
+	width:100px;
+	height:100px;
+	border:1px solid black;
+	background-color:#999;
+	position:absolute;
+	top:50px;
+	left:50px;
+}
+.cube .in-front{
+	transform: translateZ(50px);
+}
+.cube .in-back{
+	transform: translateZ(-50px) rotateY(180deg);
+}
+.cube .in-left{
+	transform: translateX(-50px) rotateY(-90deg);
+}
+.cube .in-right{
+	transform: translateX(50px) rotateY(90deg);
+}
+.cube .in-top{
+	transform: translateY(-50px) rotateX(90deg);
+}
+.cube .in-bottom{
+	transform: translateY(50px) rotateX(-90deg);
+}
+.inner-amy-img:nth-of-type(1){
+	background-image: url(http://b244.photo.store.qq.com/psbe?/V12Q4CnC05ulsM/KlpKM18VuxGVF8OuyXTLlQQhB5DmIfNZf6u1siZMd15lZDz4BeaRFRuFfEZf4wFK/b/dPQAAAAAAAAA&bo=AAXkCKAFAAoRCXg!&rf=viewer_4);
+    background-position:left top;
+	background-size:100% 100%;
+    background-repeat: no-repeat;
+   
+}
+.inner-amy-img:nth-of-type(2){
+	background-image: url(http://b244.photo.store.qq.com/psbe?/V12Q4CnC05ulsM/KlpKM18VuxGVF8OuyXTLlQQhB5DmIfNZf6u1siZMd15lZDz4BeaRFRuFfEZf4wFK/b/dPQAAAAAAAAA&bo=AAXkCKAFAAoRCXg!&rf=viewer_4);
+    background-position:left top;
+	background-size:100% 100%;
+    background-repeat: no-repeat;
+   
+}
+.inner-amy-img:nth-of-type(3){
+	background-image: url(http://b339.photo.store.qq.com/psbe?/V12Q4CnC05ulsM/q6BcpK4FYc1cFtASlxM9yNYN*yViY1bmxipYtoQtHlR9UOT.wZXvW3B8I9y7Kee7/b/dHl0EsoqCwAA&bo=gAJVA8AD0AIBCes!&rf=viewer_4);
+    background-position:left top;
+	background-size:100% 100%;
+    background-repeat: no-repeat;
+   
+}
+.inner-amy-img:nth-of-type(4){
+	background-image: url(http://b244.photo.store.qq.com/psbe?/V12Q4CnC05ulsM/EcY2lLq67y1pvsawQkHk2Xgd2FSKJ3BBw2dcl8RpNHQRZznv1HLEUXAY1Np3MRAT/b/dPQAAAAAAAAA&bo=0AIABdACAAURCT4!&rf=viewer_4);
+    background-position:left top;
+	background-size:100% 100%;
+    background-repeat: no-repeat;
+   
+}
+.inner-amy-img:nth-of-type(5){
+	background-image: url(http://b334.photo.store.qq.com/psbe?/V12Q4CnC05ulsM/fCJh6AlxcRggQeybL4SpcfvjIYDHrQWL93gQGE98xb3TBk*gJEzjXsR2ZfW5Crkz/b/dPkmHMeQHwAA&bo=gAJVAwAAAAABB*Q!&rf=viewer_4);
+    background-position:left top;
+	background-size:100% 100%;
+    background-repeat: no-repeat;
+   
+}
+.inner-amy-img:nth-of-type(6){
+	background-image: url(http://b368.photo.store.qq.com/psbe?/V12Q4CnC1ErYxB/15tYb02Dr2QYIVv0hgYxh5EAApObQuic63vpK3nHbsQdNp8CEKbwEaseQbN9bj3t/b/dHABAAAAAAAA&bo=5QirBuUIqwYFByQ!&rf=viewer_4);
+    background-position:left top;
+	background-size:100% 100%;
+    background-repeat: no-repeat;
+   
+}
+
+.wrap:hover .out-front{
+	transform: translateZ(200px);
+}
+.wrap:hover .out-back{
+	transform: translateZ(-200px) rotateY(180deg);
+}
+.wrap:hover .out-left{
+	transform: translateX(-200px) rotateY(-90deg);
+}
+.wrap:hover .out-right{
+	transform: translateX(200px) rotateY(90deg);
+}
+.wrap:hover .out-top{
+	transform: translateY(-200px) rotateX(90deg);
+}
+.wrap:hover .out-bottom{
+	transform: translateY(200px) rotateX(-90deg);
+}
+
+</style>
 </head>
 <body>
-    <div id="mainContainer">
-    </div>
-    <script src="./src/bundle.js"></script>
+<div class="wrap">
+	<div class="cube">
+		<div class="out-front"><img class="amy-img" src="http://b244.photo.store.qq.com/psbe?/V12Q4CnC2zc5gN/rHP6f9E0*jPTQrqjQiJKrZ5KOzyCEmpGQ58R*DjBqbCItTGbwx7gXZqp7pADAYFI/b/dPQAAAAAAAAA&bo=OASABzgEgAcRCT4!&rf=viewer_4"/></div>
+		<div class="out-back"><img class="amy-img" src="http://b257.photo.store.qq.com/psbe?/V12Q4CnC0UWzlg/yIuPclpcV6YXpMKQMAM533UxnmUqKMke6*Ki3tBDp56TA8znlQ9fJIRcCAjX1.Vx/b/dAEBAAAAAAAA&bo=AAXQAgAAAAARB.c!&rf=viewer_4"/></div>
+		<div class="out-left"><img class="amy-img" src="http://b37.photo.store.qq.com/psb?/V12Q4CnC1fpoGD/jcEgtOCleMK1Xd2*sA8kZNEbfLmMt4.fYku8LWdafGo!/b/dCUAAAAAAAAA&bo=AAXkCKAFAAoFGXw!&rf=viewer_4"/></div>
+		<div class="out-right"><img class="amy-img" src="http://b227.photo.store.qq.com/psbe?/V12Q4CnC1ErYxB/vPhkPQSUm3*VxcPKtBaf2BXDUvi36h.YaPL02vu6.9BZOE4kwBaDt8xtaL7NaeNl/b/dOMAAAAAAAAA&bo=5QirBuUIqwYFByQ!&rf=viewer_4"/></div> 
+		<div class="out-top"><img class="amy-img" src="http://b370.photo.store.qq.com/psbe?/V12Q4CnC22JwtV/EvoUczj5oGcCtxF3RBQcj50TIZ2rjHdP6m1yEfKZU*UAG8kUhZ97Ct1tbfE*iHMF/b/dHIBAAAAAAAA&bo=kQUgA0AGggMFCFs!&rf=viewer_4"/></div>
+		<div class="out-bottom"><img class="amy-img" src="http://b394.photo.store.qq.com/psbe?/V12Q4CnC05ulsM/r0VfYlDispnIm4FE9OHIVW3C0OOAcWYnpGQVdk.2h6gOT6KOpxa*g.opP3ruQN2t/b/dIoBAAAAAAAA&bo=gAJzBAAAAAAFB9E!&rf=viewer_4"/></div>
+
+		<span class="in-front inner-amy-img"></span>
+		<span class="in-back inner-amy-img" ></span>
+		<span class="in-left inner-amy-img"></span>
+		<span class="in-right inner-amy-img"></span>
+		<span class="in-top inner-amy-img"></span>
+		<span class="in-bottom inner-amy-img"></span>
+	</div>
+</div>
+
+</div>
 </body>
-<html>
+</html>
